@@ -1,28 +1,37 @@
-
-let img;
-
-function preload(){
- img = loadImage('cat.jpg');
-}
-
+let InBranch;
+let rotBranch1;
+let rotBranch2;
 
 function setup() {
   createCanvas(400, 400);
- 
+angleMode (DEGREES)
 }
 
 function draw() {
-  background(220);
-cat(mouseX, 0, 200, 200, 10);
-cat(200, mouseY, 200, 200, 5);
-cat(200, 0, 200, 200, 20)
-cat(0, 200, 200, 200, 2)
+  background(200, 200, 400)
+  translate (width/2, height);
+  branch (100);
 }
 
-
-function cat(tx, ty, tw, th, tsw){
-image(img, tx,ty, tw, th)
-filter(GRAY);
-strokeWeight(tsw);
-line(tx, ty, (tw+tx), (th+ty));
+function branch (InBranch) {
+  rotBranch1 = mouseX;
+  rotBranch2 = mouseY;
+  stroke (0, 0, 0)
+  line (0, 0, 0, -InBranch);
+  ellipse (0, -InBranch, 10);
+  //MOVE ORIGIN AND ROTATE
+  translate(0, -InBranch);
+  rotate (30)
+  //RECURSIVE CODE
+  if (InBranch > 4) {
+  
+    push ();
+    rotate (rotBranch1);
+    branch (InBranch/1.2);
+    pop ();
+    push ();
+    rotate (-rotBranch2);
+    branch (InBranch/1.6);
+    pop ()
+  }
 }
