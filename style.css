@@ -1,24 +1,25 @@
 html,
 body {
   margin: 0;
-  background-color: #ecebe6;
+  background-image: radial-gradient(circle, rgb(250, 192, 192), rgb(253, 234, 208), rgb(252, 218, 144));
 }
 
 h3 {
 font-style: normal;
   text-decoration: none;
-  color: rgb(23, 26, 26);
+  color: rgb(78, 100, 196);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 800;
   font-size: 35px;
   text-align: center;
   margin: 15px;
+  text-shadow: 5px 5px 10px #ffffff;
 }
 
 a {
   font-style: normal;
   text-decoration: none;
-  color: darkslategrey;
+  color: rgb(32, 128, 128);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   font-size: 25px;
