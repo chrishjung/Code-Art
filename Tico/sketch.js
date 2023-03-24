@@ -1,28 +1,48 @@
+let img1;
+let img2;
+let foodX;
+let foodY;
+let score;
+let txt;
 
-let img;
-
-function preload(){
- img = loadImage('cat.jpg');
+function preload() {
+  score;
+  img1 = loadImage('maxwellCat.png');
+  img2 = loadImage('food.png');
+  txt = text('score'+score, 10, 60);
+  foodX = random(40, 360);
+  foodY = random(40, 360);
 }
-
 
 function setup() {
+  score = 0;
   createCanvas(400, 400);
- 
+  text('score:'+ score, 10, 60);
 }
-
 function draw() {
   background(220);
-cat(mouseX, 0, 200, 200, 10);
-cat(200, mouseY, 200, 200, 5);
-cat(200, 0, 200, 200, 20)
-cat(0, 200, 200, 200, 2)
+  image(img1, mouseX, mouseY, 100, 80);
+}
+function keyTyped() {
+  if (key === 'f') {
+    food();
+  }
+}
+function food(){
+  image(img2, foodX, foodY, 45, 15);
+
+function checkForFood() {
+    point(foodX, foodY);
+    if (foodX = mouseX + 100, mouseY + 80) {
+      score = score + 1;
+      updateFood();
+    }
+  }
+  
+function updateFood() {
+    food();
+  }
+  
 }
 
 
-function cat(tx, ty, tw, th, tsw){
-image(img, tx,ty, tw, th)
-filter(GRAY);
-strokeWeight(tsw);
-line(tx, ty, (tw+tx), (th+ty));
-}
