@@ -10,8 +10,7 @@ function preload() {
   img1 = loadImage('maxwellCat.png');
   img2 = loadImage('food.png');
   txt = text('score'+score, 10, 60);
-  foodX = random(40, 360);
-  foodY = random(40, 360);
+
 }
 
 function setup() {
@@ -22,13 +21,17 @@ function setup() {
 function draw() {
   background(220);
   image(img1, mouseX, mouseY, 100, 80);
-}
-function keyTyped() {
-  if (key === 'f') {
+//image(img2, mouseX+100, mouseY, 45, 15);
+ if (key === 'f') {
     food();
   }
 }
+
+
+
 function food(){
+  foodX = random(40, 360);
+  foodY = random(40, 360);
   image(img2, foodX, foodY, 45, 15);
 
 function checkForFood() {
